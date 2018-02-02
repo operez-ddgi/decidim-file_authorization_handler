@@ -1,10 +1,11 @@
 
+# frozen_string_literal: true
+
 module Decidim
   module FileAuthorizationHandler
     # Provides information about the current status of the census data
     # for a given organization
     class Status
-
       def initialize(organization)
         @organization = organization
       end
@@ -22,7 +23,6 @@ module Decidim
                               .distinct.count(:id_document)
         @count
       end
-
     end
   end
 end

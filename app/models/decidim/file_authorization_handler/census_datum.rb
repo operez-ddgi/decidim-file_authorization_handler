@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module Decidim
   module FileAuthorizationHandler
     class CensusDatum < ApplicationRecord
-
       belongs_to :organization, foreign_key: :decidim_organization_id,
-                                class_name: 'Decidim::Organization'
+                                class_name: "Decidim::Organization"
 
       # An organzation scope
       def self.inside(organization)
@@ -20,13 +21,13 @@ module Decidim
 
       # Normalizes a id document string (remove invalid characters)
       def self.normalize_id_document(string)
-        return '' unless string
-        string.gsub(/[^A-z0-9]/, '').upcase
+        return "" unless string
+        string.gsub(/[^A-z0-9]/, "").upcase
       end
 
       # Convert a date from string to a Date object
       def self.parse_date(string)
-        Date.strptime((string || '').strip, '%d/%m/%Y')
+        Date.strptime((string || "").strip, "%d/%m/%Y")
       rescue StandardError
         nil
       end
@@ -34,10 +35,10 @@ module Decidim
       # Insert a collection of values
       def self.insert_all(organization, values)
         table_name = CensusDatum.table_name
-        columns = %w[id_document birthdate decidim_organization_id created_at].join(',')
+        columns = %w(id_document birthdate decidim_organization_id created_at).join(",")
         now = Time.current
         values = values.map { |row| "('#{row[0]}', '#{row[1]}', '#{organization.id}', '#{now}')" }
-        sql = "INSERT INTO #{table_name} (#{columns}) VALUES #{values.join(',')}"
+        sql = "INSERT INTO #{table_name} (#{columns}) VALUES #{values.join(",")}"
         ActiveRecord::Base.connection.execute(sql)
       end
 
@@ -45,7 +46,6 @@ module Decidim
       def self.clear(organization)
         CensusDatum.inside(organization).delete_all
       end
-
     end
   end
 end

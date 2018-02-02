@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
+
+source "https://rubygems.org"
 
 # Declare your gem's dependencies in decidim-census.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -11,4 +13,4 @@ gemspec
 # your gem to rubygems.org.
 
 # This is required to generate the testing dummy_app (see README)
-gem 'decidim', require: true
+gem "decidim", require: true

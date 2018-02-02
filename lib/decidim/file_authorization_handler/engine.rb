@@ -4,21 +4,19 @@ module Decidim
   module FileAuthorizationHandler
     # Census have no public app (see AdminEngine)
     class Engine < ::Rails::Engine
-
       isolate_namespace Decidim::FileAuthorizationHandler
 
-      initializer 'decidim_census.add_irregular_inflection' do |_app|
+      initializer "decidim_census.add_irregular_inflection" do |_app|
         ActiveSupport::Inflector.inflections(:en) do |inflect|
-          inflect.irregular 'census', 'census'
+          inflect.irregular "census", "census"
         end
       end
 
-      initializer 'decidim_census.add_authorization_handlers' do |_app|
+      initializer "decidim_census.add_authorization_handlers" do |_app|
         Decidim::Verifications.register_workflow(:file_authorization_handler) do |workflow|
-          workflow.form = 'FileAuthorizationHandler'
+          workflow.form = "FileAuthorizationHandler"
         end
       end
-
     end
   end
 end

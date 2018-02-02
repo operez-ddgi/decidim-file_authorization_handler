@@ -7,10 +7,10 @@
   </div>
   <div class="card-section">
     <% if @status.count > 0 %>
-      <p><%= t('decidim.file_authorization_handler.admin.show.data', count: @status.count, 
+      <p><%= t('decidim.file_authorization_handler.admin.show.data', count: @status.count,
         due_date: l(@status.last_import_at, format: :long)) %>
       </p>
-      <%= link_to t('decidim.file_authorization_handler.admin.destroy.title'), 
+      <%= link_to t('decidim.file_authorization_handler.admin.destroy.title'),
         censuses_path,
         method: :delete,
         class: 'button alert',
