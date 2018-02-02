@@ -1,14 +1,8 @@
-# frozen_string_literal: true
-
-require "virtus/multiparams"
+# rubocop:disable Style/FrozenStringLiteralComment
 
 # An AuthorizationHandler that uses information uploaded from a CSV file
 # to authorize against the age of the user
 class FileAuthorizationHandler < Decidim::AuthorizationHandler
-  # Virtus Multiparams allows the Date and DateTime attributes
-  # to be expressed in days, months and years (see documentation)
-  include Virtus::Multiparams
-
   # This is the input (from the user) to validate against
   attribute :id_document, String
   attribute :birthdate, Date
@@ -21,6 +15,12 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
 
   def metadata
     { birthdate: census_for_user&.birthdate&.strftime("%Y/%m/%d") }
+  end
+
+  # This is required in new 0.8.4 version of decicim
+  # however, there's a bug and this doesn't work
+  def handler_name
+    "file_authorization_handler"
   end
 
   # Checks if the id_document belongs to the census
