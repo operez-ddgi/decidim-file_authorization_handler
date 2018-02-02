@@ -32,9 +32,6 @@ en:
             success: Successfully imported %{count} items (%{errors} errors)
           destroy:
             success: All census data have been deleted
-        instructions:
-          title: You need to activate the census module for this organization
-          body: To do this you must enter system administration and add the excel or combined authorizations to the organization
         menu:
           census: Upload census
         show:

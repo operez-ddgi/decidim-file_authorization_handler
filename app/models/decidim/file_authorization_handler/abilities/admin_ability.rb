@@ -8,7 +8,9 @@ module Decidim
       class AdminAbility < Decidim::Abilities::AdminAbility
         def define_abilities
           super
-          can :manage, Decidim::FileAuthorizationHandler::CensusDatum
+          if user.organization.available_authorizations.include?("file_authorization_handler")
+            can :manage, Decidim::FileAuthorizationHandler::CensusDatum
+          end
         end
       end
     end

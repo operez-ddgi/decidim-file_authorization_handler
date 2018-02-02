@@ -1,15 +1,9 @@
-
 # frozen_string_literal: true
 
 module Decidim
   module FileAuthorizationHandler
     module Admin
       class CensusesController < Decidim::Admin::ApplicationController
-        FILE_AUTHORIZATION_HANDLER_NAME = "file_authorization_handler"
-
-        before_action :show_instructions,
-                      unless: :census_authorization_active_in_organization?
-
         def show
           authorize! :show, CensusDatum
           @status = Status.new(current_organization)
@@ -31,17 +25,6 @@ module Decidim
           authorize! :destroy, CensusDatum
           CensusDatum.clear(current_organization)
           redirect_to censuses_path, notice: t(".success")
-        end
-
-        private
-
-        def show_instructions
-          render :instructions
-        end
-
-        def census_authorization_active_in_organization?
-          current_organization.available_authorizations
-                              .include?(FILE_AUTHORIZATION_HANDLER_NAME)
         end
       end
     end

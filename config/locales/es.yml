@@ -32,9 +32,6 @@ es:
             success: Se han importado con éxito %{count} elementos (%{errors} errores)
           destroy:
             success: Se han borrado todos los datos censales
-        instructions:
-          title: Necesitas activar el módulo de censos para esta organización
-          body: Para ello debes entrar en administración del sistema y añadir la autorización de excel o la combinada en la organización
         menu:
           census: Subir censo
         show:
