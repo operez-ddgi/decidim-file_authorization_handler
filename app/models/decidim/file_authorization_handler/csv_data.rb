@@ -20,8 +20,8 @@ module Decidim
       private
 
       def process_row(row)
-        id_document = Decidim::FileAuthorizationHandler::CensusDatum.normalize_id_document(row[0])
-        date = Decidim::FileAuthorizationHandler::CensusDatum.parse_date(row[1])
+        id_document = CensusDatum.normalize_and_encode_id_document(row[0])
+        date = CensusDatum.parse_date(row[1])
         if id_document.present? && !date.nil?
           values << [id_document, date]
         else
