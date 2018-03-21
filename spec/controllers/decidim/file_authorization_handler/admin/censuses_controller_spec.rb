@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController,
-               type: :controller do
-
+RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, type: :controller do
   include Warden::Test::Helpers
 
   routes { Decidim::FileAuthorizationHandler::AdminEngine.routes }
@@ -39,8 +37,8 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController,
       expect(response).to have_http_status(:redirect)
 
       expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 3
-      expect(Decidim::FileAuthorizationHandler::CensusDatum.first.id_document).to eq "1111A"
-      expect(Decidim::FileAuthorizationHandler::CensusDatum.last.id_document).to eq "3333C"
+      expect(Decidim::FileAuthorizationHandler::CensusDatum.first.id_document).to eq encode_id_document("1111A")
+      expect(Decidim::FileAuthorizationHandler::CensusDatum.last.id_document).to eq encode_id_document("3333C")
     end
   end
 
