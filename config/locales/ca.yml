@@ -32,6 +32,8 @@ ca:
             success: S'han importat amb èxit %{count} elements (%{errors} errors)
           destroy:
             success: S'han esborrat totes les dades censals
+          update:
+            success: Autoritzacions eliminades
         menu:
           census: Pujar cens
         show:
@@ -43,3 +45,8 @@ ca:
           title: Pujar un nou cens
           file: Arxiu excel .csv amb les dades del cens
           submit: Carrega
+        update:
+          title: Neteja autoritzacions
+          info: "Elimina totes les autoritzacions existents (atenció: tots els usuaris hauran de tornar a autoritzar-se)"
+          submit: Elimina
+

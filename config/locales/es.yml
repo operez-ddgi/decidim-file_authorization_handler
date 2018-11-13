@@ -32,6 +32,8 @@ es:
             success: Se han importado con éxito %{count} elementos (%{errors} errores)
           destroy:
             success: Se han borrado todos los datos censales
+          update:
+            success: Se han borrado todas las autorizaciones
         menu:
           census: Subir censo
         show:
@@ -43,3 +45,7 @@ es:
           title: Subir un nuevo censo
           file: Archivo excel .csv con los datos del censo
           submit: Subir archivo
+        update:
+          title: Limpiar autorizaciones
+          info: "Elimina todas las autorizaciones existentes (atención: todos los usuarios deberan volver a autorizarse)"
+          submit: Eliminar
