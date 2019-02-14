@@ -11,9 +11,9 @@ module Decidim
 
       initializer "decidim_file_authorization.add_admin_authorizations" do |_app|
         Decidim.configure do |config|
-          #config.admin_abilities += [
-          #  "Decidim::FileAuthorizationHandler::Abilities::AdminAbility"
-          #]
+          config.admin_abilities += [
+            "Decidim::FileAuthorizationHandler::Abilities::AdminAbility"
+          ]
         end
       end
 
