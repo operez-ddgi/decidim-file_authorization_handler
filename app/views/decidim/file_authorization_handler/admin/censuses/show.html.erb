@@ -46,7 +46,7 @@
     </h2>
   </div>
   <div class="card-section">
-    <p><%= t('decidim.file_authorization_handler.admin.update.info') %></p>
+    <p><%= t('admin.update.info', scope: 'decidim.file_authorization_handler') %></p>
     <%= form_tag censuses_path, multipart: false, class: 'form', method: :put do %>
       <%= submit_tag t('admin.update.submit', scope: 'decidim.file_authorization_handler'), class: 'button' %>
     <% end %>
