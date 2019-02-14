@@ -36,8 +36,7 @@ module Decidim
           redirect_to censuses_path, notice: t(".success")
         end
 
-        private
-        
+        private        
         def remove_all_authorizations
           Authorization.where(organization: current_organization, name: "file_authorization_handler").destroy_all
         end
