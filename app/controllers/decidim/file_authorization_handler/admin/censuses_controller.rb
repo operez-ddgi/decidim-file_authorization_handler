@@ -13,7 +13,7 @@ module Decidim
           authorize! :create, CensusDatum
           if params[:file]
             if params[:unverify]
-              Authorization.where(organization: current_organization).destroy_all
+              remove_all_authorizations
             end
             data = CsvData.new(params[:file].path)
             CensusDatum.insert_all(current_organization, data.values)
@@ -30,10 +30,16 @@ module Decidim
           redirect_to censuses_path, notice: t(".success")
         end
 
-        def update
+        def delete_authorizations
           authorize! :update, CensusDatum
-          Authorization.where(organization: current_organization).destroy_all
+          remove_all_authorizations
           redirect_to censuses_path, notice: t(".success")
+        end
+
+        private
+        
+        def remove_all_authorizations
+          Authorization.where(organization: current_organization, name: "file_authorization_handler").destroy_all
         end
       end
     end
