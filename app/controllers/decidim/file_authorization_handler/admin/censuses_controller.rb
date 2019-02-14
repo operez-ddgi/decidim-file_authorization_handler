@@ -12,9 +12,7 @@ module Decidim
         def create
           authorize! :create, CensusDatum
           if params[:file]
-            if params[:unverify]
-              remove_all_authorizations
-            end
+            remove_all_authorizations if params[:unverify]
             data = CsvData.new(params[:file].path)
             CensusDatum.insert_all(current_organization, data.values)
             RemoveDuplicatesJob.perform_later(current_organization)
