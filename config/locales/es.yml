@@ -32,7 +32,7 @@ es:
             success: Se han importado con éxito %{count} elementos (%{errors} errores)
           destroy:
             success: Se han borrado todos los datos censales
-          update:
+          delete_authorizations:
             success: Se han borrado todas las autorizaciones
         menu:
           census: Subir censo

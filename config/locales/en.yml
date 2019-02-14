@@ -21,7 +21,7 @@ en:
             success: Successfully imported %{count} items (%{errors} errors)
           destroy:
             success: All census data have been deleted
-          update:
+          delete_authorizations:
             success: Removed authorizations
         destroy:
           confirm: Delete all the census can not be undone. Are you sure you want to continue?

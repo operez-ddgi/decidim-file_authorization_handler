@@ -6,14 +6,14 @@ module Decidim
       isolate_namespace Decidim::FileAuthorizationHandler::Admin
 
       routes do
-        resource :censuses, only: [:show, :create, :destroy, :update]
+        resource :censuses, only: [:show, :create, :destroy, :update, :delete_authorizations]
       end
 
       initializer "decidim_file_authorization.add_admin_authorizations" do |_app|
         Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::FileAuthorizationHandler::Abilities::AdminAbility"
-          ]
+          #config.admin_abilities += [
+          #  "Decidim::FileAuthorizationHandler::Abilities::AdminAbility"
+          #]
         end
       end
 
@@ -23,8 +23,10 @@ module Decidim
                     decidim_file_authorization_handler_admin.censuses_path,
                     icon_name: "spreadsheet",
                     position: 7,
-                    active: :inclusive,
-                    if: can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
+                    active: :inclusive
+                    
+                    
+           #if: #can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
         end
       end
     end

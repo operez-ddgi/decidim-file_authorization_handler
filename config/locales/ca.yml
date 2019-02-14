@@ -32,7 +32,7 @@ ca:
             success: S'han importat amb èxit %{count} elements (%{errors} errors)
           destroy:
             success: S'han esborrat totes les dades censals
-          update:
+          delete_authorizations:
             success: Autoritzacions eliminades
         menu:
           census: Pujar cens
