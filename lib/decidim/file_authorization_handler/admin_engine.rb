@@ -23,8 +23,8 @@ module Decidim
                     decidim_file_authorization_handler_admin.censuses_path,
                     icon_name: "spreadsheet",
                     position: 7,
-                    active: :inclusive
-	            if: can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
+                    active: :inclusive,
+                    if: can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
         end
       end
     end
