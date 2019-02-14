@@ -37,6 +37,7 @@ module Decidim
         end
 
         private
+
         def remove_all_authorizations
           Authorization.where(organization: current_organization, name: "file_authorization_handler").destroy_all
         end
