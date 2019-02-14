@@ -24,9 +24,7 @@ module Decidim
                     icon_name: "spreadsheet",
                     position: 7,
                     active: :inclusive
-                    
-                    
-           #if: #can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
+	            if: can?(:read, Decidim::FileAuthorizationHandler::CensusDatum)
         end
       end
     end
