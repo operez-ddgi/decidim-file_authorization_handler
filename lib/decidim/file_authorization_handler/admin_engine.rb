@@ -6,7 +6,7 @@ module Decidim
       isolate_namespace Decidim::FileAuthorizationHandler::Admin
 
       routes do
-        resource :censuses, only: [:show, :create, :destroy, :update, :delete_authorizations]
+        resource :censuses, only: [:show, :create, :destroy, :delete_authorizations]
       end
 
       initializer "decidim_file_authorization.add_admin_authorizations" do |_app|
